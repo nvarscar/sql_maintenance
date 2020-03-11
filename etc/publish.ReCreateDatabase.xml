@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TargetConnectionString></TargetConnectionString>
+    <ProfileVersionNumber>1</ProfileVersionNumber>
+    <AllowIncompatiblePlatform>True</AllowIncompatiblePlatform>
+    <CreateNewDatabase>True</CreateNewDatabase>
+    <ExcludeObjectTypes>Permissions;RoleMembership</ExcludeObjectTypes>
+    <ExcludeLogins>True</ExcludeLogins>
+    <IgnorePermissions>True</IgnorePermissions>
+    <DropObjectsNotInSource>True</DropObjectsNotInSource>
+    <IgnoreUserSettingsObjects>True</IgnoreUserSettingsObjects>
+    <IgnoreLoginSids>True</IgnoreLoginSids>
+    <IgnoreRoleMembership>True</IgnoreRoleMembership>
+  </PropertyGroup>
+</Project>
