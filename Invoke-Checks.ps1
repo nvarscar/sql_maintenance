@@ -1,8 +1,10 @@
 # Requirements:
-if (-not (Get-Module dbachecks -ErrorAction SilentlyContinue)) {
+$mod = Get-Module dbachecks -ErrorAction SilentlyContinue
+if (-not $mod) {
     Install-Module dbachecks -Force -Scope CurrentUser
 }
-if (-not (Get-Package ReportUnit -ErrorAction SilentlyContinue)) {
+$pack = Get-Package ReportUnit -ErrorAction SilentlyContinue
+if (-not $pack) {
     Install-Package ReportUnit -Force -Scope CurrentUser
 }
 
