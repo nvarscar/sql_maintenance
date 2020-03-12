@@ -6,7 +6,8 @@ if (-not (Get-Package ReportUnit -ErrorAction SilentlyContinue)) {
     Install-Package ReportUnit -Force -Scope CurrentUser
 }
 
-. .\settings.ps1
+$sPassword = ConvertTo-SecureString $env:password -AsPlainText -Force
+$cred = New-Object pscredential $env:login, $sPassword
 $servers = 'localhost','localhost:14333'
 $checks = 'Database'
 # $checks = 'SuspectPage'
