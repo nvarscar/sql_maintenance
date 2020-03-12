@@ -1,9 +1,9 @@
 # Requirements:
 if (-not (Get-Module dbachecks -ErrorAction SilentlyContinue)) {
-    Install-Module dbachecks -SkipPublisherCheck -Force -Scope CurrentUser
+    Install-Module dbachecks -Force -Scope CurrentUser
 }
 if (-not (Get-Package ReportUnit -ErrorAction SilentlyContinue)) {
-    Install-Package ReportUnit -SkipPublisherCheck -Force -Scope CurrentUser
+    Install-Package ReportUnit -Force -Scope CurrentUser
 }
 
 . .\settings.ps1
