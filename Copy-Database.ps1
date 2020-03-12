@@ -4,12 +4,12 @@ Param (
     $TargetServer = $SourceServer,
     $SourceDatabaseName,
     $TargetDatabaseName,
-    $BackupFileLocation = "\\wpg1dd02\np_SqlBackup\ADHOC\$($SourceDatabaseName)_tmp.bak",
-    $ExecuteAs = 'SQLSamurai',
+    $BackupFileLocation = "/backup/$($SourceDatabaseName)_tmp.bak",
     [switch]$KeepPermissions,
     [switch]$DropUsers
 )
-
+# set passwords
+. .\settings.ps1
 #Stop on any error by default
 $ErrorActionPreference = 'Stop'
 
@@ -29,11 +29,6 @@ if (!$backup.BackupComplete) {
 
 #Initiating connection to the target server
 $conn = Connect-DbaInstance -SqlInstance $TargetServer -NonPooledConnection
-
-#Becoming a different user if specified - to change the default DB Owner
-if ($ExecuteAs) {
-    $conn.Invoke("EXECUTE AS LOGIN = '$ExecuteAs' WITH NO REVERT")
-}
 
 #Record permissions
 if ($KeepPermissions -or $DropUsers) {
