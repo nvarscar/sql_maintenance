@@ -5,4 +5,8 @@ $servers = 'localhost','localhost:14333'
 # Or load them from your CMS! 
 # $servers = Get-DbaRegisteredServerGroup
 
-Install-DbaMaintenanceSolution -SqlInstance $servers -Database master -BackupLocation /backups -InstallJobs -ReplaceExisting -LogToTable
+# clean up existing jobs
+Get-DbaAgentJob -sqlinstance localhost -Category 'Database Maintenance' | Remove-DbaAgentJob
+
+# install the solution
+Install-DbaMaintenanceSolution -SqlInstance $servers -Database master -BackupLocation /backups/sql -InstallJobs -ReplaceExisting -LogToTable
