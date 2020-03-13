@@ -16,6 +16,7 @@ $password = 'dbatools.IO'
 
 # adjust backup path for docker
 Get-ChildItem $backupFolder | Remove-Item -Force
+New-Item -Path $backupFolder\sql -ItemType Directory
 $null = New-Item $backupFolder -ItemType Directory -Force
 $linuxBackupFolder = $backupFolder
 if ($linuxBackupFolder.Contains(':')) {
