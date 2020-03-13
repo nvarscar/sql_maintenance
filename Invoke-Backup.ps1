@@ -1,3 +1,5 @@
+# define runtime settings
+. .\settings.ps1
 # define environments
 $servers = @{
     test = 'localhost','localhost:14333'
