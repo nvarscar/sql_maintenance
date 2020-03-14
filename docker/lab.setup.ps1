@@ -15,7 +15,9 @@ $logins = 'Legolas', 'Gimli', 'Aragorn'
 $password = 'dbatools.IO'
 
 # adjust backup path for docker
-Get-ChildItem $backupFolder | Remove-Item -Force
+if (Test-Path $backupFolder) {
+    Get-ChildItem $backupFolder | Remove-Item -Force -Recurse
+}
 New-Item -Path $backupFolder\sql -ItemType Directory
 $null = New-Item $backupFolder -ItemType Directory -Force
 $linuxBackupFolder = $backupFolder
@@ -109,7 +111,7 @@ $logins | ForEach-Object { (Get-DbaDatabase -SqlInstance $instance1 -ExcludeAllS
 
 #Set server parameters
 Set-DbaSpConfigure -SqlInstance $server1 -Config MaxDegreeOfParallelism -Value 1
-Set-DbaSpConfigure -SqlInstance $server1 -Config MaxServerMemory -Value 1024
+Set-DbaSpConfigure -SqlInstance $server1 -Config MaxServerMemory -Value 512
 Set-DbaSpConfigure -SqlInstance $server1 -Config IsSqlClrEnabled -Value $true
 
 Set-DbaSpConfigure -SqlInstance $server1 -Config MaxDegreeOfParallelism -Value 0
