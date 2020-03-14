@@ -1,12 +1,12 @@
 # Requirements:
-$mod = Get-Module dbachecks -ErrorAction SilentlyContinue
-if (-not $mod) {
-    Install-Module dbachecks -Force -Scope CurrentUser
-}
-$pack = Get-Package ReportUnit -ErrorAction SilentlyContinue
-if (-not $pack) {
-    Install-Package ReportUnit -Force -Scope CurrentUser
-}
+# $mod = Get-Module dbachecks -ErrorAction SilentlyContinue
+# if (-not $mod) {
+#     Install-Module dbachecks -Force -Scope CurrentUser
+# }
+# $pack = Get-Package ReportUnit -ErrorAction SilentlyContinue
+# if (-not $pack) {
+#     Install-Package ReportUnit -Force -Scope CurrentUser
+# }
 
 $sPassword = ConvertTo-SecureString $env:password -AsPlainText -Force
 $cred = New-Object pscredential $env:login, $sPassword
