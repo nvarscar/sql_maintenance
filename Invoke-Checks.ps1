@@ -8,6 +8,9 @@
 #     Install-Package ReportUnit -Force -Scope CurrentUser
 # }
 
+# enable css in html:
+# System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
+
 $sPassword = ConvertTo-SecureString $env:password -AsPlainText -Force
 $cred = New-Object pscredential $env:login, $sPassword
 $servers = 'localhost','localhost:14333'
