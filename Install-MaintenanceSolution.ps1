@@ -3,7 +3,7 @@
 # define environments
 $servers = 'localhost','localhost:14333'
 # Or load them from your CMS! 
-# $servers = Get-DbaRegisteredServerGroup
+# $servers = Get-DbaRegisteredServerGroup -SqlInstance localhost
 
 # clean up existing jobs
 Get-DbaAgentJob -SqlInstance $servers -Category 'Database Maintenance' | Remove-DbaAgentJob
